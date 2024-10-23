@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Header } from "./assets/components/Header"
 import { Tabs } from "./assets/components/Tabs"
 
@@ -9,10 +10,12 @@ export default function App() {
     {task: "DCN Module 3", isComplete: false, subject: 'DCN'}
   ]
 
+  const [Tab, setTab] = useState('All')
+
   return (
     <>
-    <Header todos={todos}/>
-    <Tabs todos={todos}/>
+    <Header todos={todos} />
+    <Tabs todos={todos} Tab={Tab} setTab={setTab}/>
     </>
   )
 }

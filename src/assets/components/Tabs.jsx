@@ -1,5 +1,5 @@
 export function Tabs(props) {
-    const { todos } = props
+    const { todos, Tab, setTab } = props
     const tabs = ['All', 'Done', 'App Dev', 'OpSys', 'Prog 03', 'Data Com', 'Data Structure & Algo', 'PathFit', 'RVA']
 
 
@@ -21,7 +21,9 @@ export function Tabs(props) {
             const totalTask = subjectFilters[tab] ? subjectFilters[tab]() : '';
 
                 return (
-                    <button className="tab-button" key={tabIndex}><h4>{tab} <span>({totalTask})</span></h4></button>
+                    <button onClick={() => {
+                        setTab(tab)
+                    }} className={"tab-button " + (tab === Tab ? 'tab-selected' : '')} key={tabIndex}><h4>{tab} <span>({totalTask})</span></h4></button>
                 ) 
             })}
         </nav>
