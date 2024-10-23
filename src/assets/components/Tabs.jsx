@@ -7,7 +7,7 @@ export function Tabs(props) {
         'All': () => todos.length,
         'Done': () => todos.filter(val => val.isComplete).length,
         'RVA': () => todos.filter(val => val.subject === 'RVA').length,
-        'App Dev': () => todos.filter(val => val.subject === 'App dev').length,
+        'App Dev': () => todos.filter(val => val.subject === 'App Dev').length,
         'OpSys': () => todos.filter(val => val.subject === 'Opsys').length,
         'Prog 03': () => todos.filter(val => val.subject === 'Prog').length,
         'Data Com': () => todos.filter(val => val.subject === 'DCN').length,
