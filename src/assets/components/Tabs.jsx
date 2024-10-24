@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export function Tabs(props) {
-    const { todos } = props
+    const { todos, setTodos, Tab, setTab } = props
     const [tabs, setTabs] = useState(['All', 'Done', 'FREE EL', 'OS', 'PROG', 'DCN', 'DSA', 'PE', 'RVA', 'UTS'])
 
     function addTab() {
@@ -20,13 +20,20 @@ export function Tabs(props) {
     }
 
     function removeTab(tabIndex) {
+        const tabToRemove = tabs[tabIndex]
         setTabs(tabs.filter((_, index) => index !== tabIndex))
-
+        
+        setTodos(todos.filter(todo => todo.subject !== tabToRemove))
     }
+
+    function handleTabClick(tab) {
+        setTab(tab)
+    }
+
 
     return (
         <nav className="mt-4">
-            <div className="flex gap-1.5 flex-wrap">
+            <div className="flex gap-0.5 flex-wrap">
             {tabs.map((tabItem, tabIndex) => {
 
                 let numberOfTask = tabItem === 'All'
@@ -46,7 +53,7 @@ export function Tabs(props) {
 
                 return (
                     <div className="relative p-1">
-                    <button key={tabIndex} className="tabButtons  bg-[#3929ff] px-1.5 py-1 rounded-sm">
+                    <button onClick={() => handleTabClick(tabItem)} key={tabIndex} className="tabButtons  bg-[#3929ff] px-1.5 py-1 rounded-sm">
                         <i onClick={() => {removeTab(tabIndex)}} className={"cursor-pointer remove-tab-icon absolute top-1 right-0 fa-solid fa-x text-[10px] text-red-500 " + (isEditOn ? ' ' : 'hidden')}></i>
                         <h6 className="text-[10px]">{tabItem} <span className="text-[8px] text-gray-300">({numberOfTask})</span></h6>
                     </button>
