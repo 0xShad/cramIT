@@ -9,7 +9,7 @@ export default function App() {
     {task: "RVA Talent show", isComplete: true, subject: 'RVA'},
     {task: "RVA Reporting", isComplete: false, subject: 'RVA'},
     {task: "DCN Module 3", isComplete: false, subject: 'DCN'},
-    {task: "AppDev Flutterflow progress", isComplete: false, subject: 'App Dev'}
+    {task: "AppDev Flutterflow progress", isComplete: false, subject: 'FREE EL'}
   ])
 
   const [Tab, setTab] = useState('All')
