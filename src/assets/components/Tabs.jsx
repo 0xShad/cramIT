@@ -1,9 +1,18 @@
+import { useState } from "react"
+
 export function Tabs(props) {
-    const { todos, Tab, setTab } = props
-    const tabs = ['All', 'Done', 'FREE EL', 'OS', 'PROG', 'DCN', 'DSA', 'PE', 'RVA', 'UTS']
+    const { todos } = props
+    const [tabs, setTabs] = useState(['All', 'Done', 'FREE EL', 'OS', 'PROG', 'DCN', 'DSA', 'PE', 'RVA', 'UTS'])
 
-
-
+    function addTab() {
+        const newTab = prompt('Enter new course name: ') 
+        if (newTab && !tabs.includes(newTab)) {
+            setTabs([...tabs, newTab])
+        } else {
+            alert('invalid input or alrdy exist.')
+        }
+       
+    }
 
     return (
         <nav className="mt-4">
@@ -32,8 +41,8 @@ export function Tabs(props) {
                 )
             })}
 
-            <button className="addTaskButton bg-white text-[#3929ff] font-bold p-1 rounded-md">
-            <i class="fa-solid fa-plus"></i>
+            <button onClick={addTab} className="addTaskButton bg-white text-[#3929ff] font-bold p-1 rounded-md">
+            <i className="fa-solid fa-plus"></i>
             </button>
             </div>
         </nav>
