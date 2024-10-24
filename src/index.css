@@ -36,3 +36,7 @@ body {
   cursor: not-allowed;
   opacity: 0.4;
 }
+
+input {
+  color: black;
+}

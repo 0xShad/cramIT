@@ -3,6 +3,7 @@ import { Header } from "./assets/components/Header"
 import { Tabs } from "./assets/components/Tabs"
 import { TaskCard } from "./assets/components/TaskCard"
 import { TaskList } from "./assets/components/TaskList"
+import { TaskInput } from "./assets/components/TaskInput"
 
 
 export default function App() {
@@ -17,9 +18,11 @@ export default function App() {
   const [Tab, setTab] = useState('All')
 
   function handleAddTask(newTask) {
-    const newTaskList = [...todos, {newTask: newTask, isComplete: false}]
+    const newTaskList = [...todos, {task: newTask, isComplete: false}]
     setTodos(newTaskList)
+    console.log(newTaskList)
   }
+
 
   return (
     <>
@@ -27,6 +30,7 @@ export default function App() {
     <Tabs todos={todos} setTodos={setTodos} Tab={Tab} setTab={setTab}/>
     {/* <TaskCard todos={todos}/> */}
     <TaskList todos={todos} Tab={Tab}/>
+    <TaskInput handleAddTask={handleAddTask}/>
     </>
   )
 }
