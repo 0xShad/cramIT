@@ -1,31 +1,23 @@
 export function Tabs(props) {
     const { todos, Tab, setTab } = props
-    const tabs = ['All', 'Done', 'App Dev', 'OpSys', 'Prog 03', 'Data Com', 'Data Structure & Algo', 'PathFit', 'RVA']
+    const tabs = ['All', 'Done', 'FREE EL', 'OS', 'PROG', 'DCN', 'DSA', 'PE', 'RVA', 'UTS']
 
-
-    const subjectFilters = {
-        'All': () => todos.length,
-        'Done': () => todos.filter(val => val.isComplete).length,
-        'RVA': () => todos.filter(val => val.subject === 'RVA').length,
-        'App Dev': () => todos.filter(val => val.subject === 'App Dev').length,
-        'OpSys': () => todos.filter(val => val.subject === 'Opsys').length,
-        'Prog 03': () => todos.filter(val => val.subject === 'Prog').length,
-        'Data Com': () => todos.filter(val => val.subject === 'DCN').length,
-        'Data Structure & Algo': () => todos.filter(val => val.subject === 'DSA').length,
-        'PathFit': () => todos.filter(val => val.subject === 'PE').length
-    }
 
     return (
-        <nav>
-            {tabs.map((tab, tabIndex) => {
-            const totalTask = subjectFilters[tab] ? subjectFilters[tab]() : '';
-
+        <nav className="mt-4">
+            <div className="flex gap-3 flex-wrap">
+            {tabs.map((tabItem, tabIndex) => {
                 return (
-                    <button onClick={() => {
-                        setTab(tab)
-                    }} className={"tab-button " + (tab === Tab ? 'tab-selected' : '')} key={tabIndex}><h4>{tab} <span>({totalTask})</span></h4></button>
-                ) 
+                    <button key={tabIndex} className="tabButtons bg-[#3929ff] px-2 py-1.5 rounded-sm">
+                        <h6>{tabItem}</h6>
+                    </button>
+                )
             })}
+
+            <button className="addTaskButton bg-white text-[#3929ff] font-bold p-2.5 rounded-md">
+            <i class="fa-solid fa-plus"></i>
+            </button>
+            </div>
         </nav>
     )
 }

@@ -7,7 +7,7 @@ export function Header(props) {
 
     return (
         <header>
-            <h1>You have {totalTask} {ifPlural} due today, 5 for the week</h1>
+            <h1>You have {totalTask} {ifPlural} TO DO.</h1>
         </header>
     )
 }
