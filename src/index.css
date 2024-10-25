@@ -37,10 +37,16 @@ body {
   opacity: 0.4;
 }
 
-input {
+input[type="text"], input[type="datetime-local"], select {
   color: black;
+  padding: 10px;
+  font-size: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
 }
 
-select {
-  color: black;
+.input-sub-con {
+  display: grid;
+  grid-template-columns: 70% 15% 15%;
+  gap: 5px;
 }
