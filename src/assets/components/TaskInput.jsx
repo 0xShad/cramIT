@@ -21,6 +21,10 @@ export function TaskInput(props) {
                     })}
                 </select>
                 <button className="bg-[#3929ff] p-1 rounded-md"onClick={() => {
+                     if (!inputValue || !dueDate) {
+                        alert('Please fill in both the assignment and the due date.');
+                        return;
+                      }
                     handleAddTask(inputValue, selectedTab, dueDate)
                     setInputValue('')
                 }}>
