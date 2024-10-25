@@ -1,9 +1,9 @@
 import { useState } from "react"
 
 export function TaskInput(props) {
-    const {handleAddTask} = props
+    const {handleAddTask, tabs, setTabs} = props
     const [inputValue, setInputValue] = useState('')
-
+    const [selectedTab, setSelectedTab] = useState(tabs[0] || '')
 
     return (
         <div className="input-con flex gap-1">
@@ -11,9 +11,16 @@ export function TaskInput(props) {
                 setInputValue(e.target.value)
             }}  placeholder="add assignment" />
             <div className="">
-                <input type="date" />
+                <select value={selectedTab} onChange={(e) => setSelectedTab(e.target.value)}>
+                    {tabs.map((tab) => {
+                        if (tab !== 'All' && tab !== 'Done') {
+                            return <option key={tab} value={tab}>{tab}</option>
+                        } 
+                    })}
+                </select>
                 <button onClick={() => {
-                    handleAddTask(inputValue)
+                    handleAddTask(inputValue, selectedTab)
+                    setInputValue('')
                 }}>
                 <i className="fa-solid fa-plus"></i>
                 </button>

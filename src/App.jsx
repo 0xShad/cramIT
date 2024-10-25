@@ -15,10 +15,12 @@ export default function App() {
     {task: "Flutterflow progress", isComplete: false, subject: 'FREE EL'}
   ])
 
+  const [tabs, setTabs] = useState(['All', 'Done', 'FREE EL', 'OS', 'PROG', 'DCN', 'DSA', 'PE', 'RVA', 'UTS'])
+
   const [Tab, setTab] = useState('All')
 
-  function handleAddTask(newTask) {
-    const newTaskList = [...todos, {task: newTask, isComplete: false}]
+  function handleAddTask(newTask, selectedTab) {
+    const newTaskList = [...todos, {task: newTask, isComplete: false, subject: selectedTab}]
     setTodos(newTaskList)
   
   }
@@ -44,10 +46,10 @@ export default function App() {
   return (
     <>
     <Header todos={todos} />
-    <Tabs todos={todos} setTodos={setTodos} Tab={Tab} setTab={setTab}/>
+    <Tabs todos={todos} setTodos={setTodos} Tab={Tab} setTab={setTab} tabs={tabs} setTabs={setTabs}/>
     {/* <TaskCard todos={todos}/> */}
     <TaskList todos={todos} Tab={Tab} handleDeleteTask={handleDeleteTask}  handleDoneTask={handleDoneTask}/>
-    <TaskInput handleAddTask={handleAddTask}/>
+    <TaskInput handleAddTask={handleAddTask} tabs={tabs} setTabs={setTabs}/>
     </>
   )
 }

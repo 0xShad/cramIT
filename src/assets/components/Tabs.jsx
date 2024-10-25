@@ -1,8 +1,8 @@
 import { useState } from "react"
 
 export function Tabs(props) {
-    const { todos, setTodos, Tab, setTab } = props
-    const [tabs, setTabs] = useState(['All', 'Done', 'FREE EL', 'OS', 'PROG', 'DCN', 'DSA', 'PE', 'RVA', 'UTS'])
+    const { todos, setTodos, Tab, setTab, tabs, setTabs } = props
+   
 
     function addTab() {
         const newTab = prompt('Enter new course name: ') 
