@@ -1,7 +1,7 @@
 import {TaskCard} from './TaskCard'
 
 export function TaskList(props){
-    const { todos, Tab } = props
+    const { todos, Tab, handleDeleteTask } = props
 
     // const filterTaskList = setTab === 'All' ? todos : setTab === 'Done' ? todos.filter(val => val.isComplete) : todos.filter(val => !val.isComplete) 
 
@@ -17,7 +17,8 @@ export function TaskList(props){
 
     return (
         <>
-        {filterTaskList.map((task, taskIndex) => {
+        {filterTaskList.map((task) => {
+            const taskIndex = todos.indexOf(task)
             return (
                 <TaskCard 
                 key={taskIndex}

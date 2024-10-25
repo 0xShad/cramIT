@@ -20,7 +20,24 @@ export default function App() {
   function handleAddTask(newTask) {
     const newTaskList = [...todos, {task: newTask, isComplete: false}]
     setTodos(newTaskList)
-    console.log(newTaskList)
+  
+  }
+
+  function handleDeleteTask(taskIndex) {
+    const newList = todos.filter((_, index) => index !== taskIndex);
+    setTodos(newList);
+  }
+
+  function handleDoneTask(taskIndex) {
+    const doneTaskList = todos.map((task, index) => {
+      if (index === taskIndex) {
+        return { ...task, isComplete: true}
+      }
+
+      return task
+    })
+    setTodos(doneTaskList)
+
   }
 
 
@@ -29,7 +46,7 @@ export default function App() {
     <Header todos={todos} />
     <Tabs todos={todos} setTodos={setTodos} Tab={Tab} setTab={setTab}/>
     {/* <TaskCard todos={todos}/> */}
-    <TaskList todos={todos} Tab={Tab}/>
+    <TaskList todos={todos} Tab={Tab} handleDeleteTask={handleDeleteTask}  handleDoneTask={handleDoneTask}/>
     <TaskInput handleAddTask={handleAddTask}/>
     </>
   )

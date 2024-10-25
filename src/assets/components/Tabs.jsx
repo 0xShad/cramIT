@@ -52,8 +52,8 @@ export function Tabs(props) {
                 }*/
 
                 return (
-                    <div className="relative p-1">
-                    <button onClick={() => handleTabClick(tabItem)} key={tabIndex} className="tabButtons  bg-[#3929ff] px-1.5 py-1 rounded-sm">
+                    <div className="relative p-1" key={tabIndex}>
+                    <button onClick={() => handleTabClick(tabItem)} className="tabButtons  bg-[#3929ff] px-1.5 py-1 rounded-sm">
                         <i onClick={() => {removeTab(tabIndex)}} className={"cursor-pointer remove-tab-icon absolute top-1 right-0 fa-solid fa-x text-[10px] text-red-500 " + (isEditOn ? ' ' : 'hidden')}></i>
                         <h6 className="text-[10px]">{tabItem} <span className="text-[8px] text-gray-300">({numberOfTask})</span></h6>
                     </button>
