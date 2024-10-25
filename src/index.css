@@ -47,6 +47,6 @@ input[type="text"], input[type="datetime-local"], select {
 
 .input-sub-con {
   display: grid;
-  grid-template-columns: 70% 15% 15%;
+  grid-template-columns: 70% 14% 14%;
   gap: 5px;
 }

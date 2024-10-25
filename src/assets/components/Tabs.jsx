@@ -1,13 +1,15 @@
 import { useState } from "react"
 
 export function Tabs(props) {
-    const { todos, setTodos, Tab, setTab, tabs, setTabs } = props
+    const { todos, setTodos, Tab, setTab, tabs, setTabs, saveToStorage } = props
    
 
     function addTab() {
         const newTab = prompt('Enter new course name: ') 
         if (newTab && !tabs.includes(newTab)) {
+            const updatedTabs = [...tabs, newTab]
             setTabs([...tabs, newTab])
+            saveToStorage(todos, updatedTabs)
         } else {
             alert('invalid input or alrdy exist.')
         }
@@ -21,9 +23,10 @@ export function Tabs(props) {
 
     function removeTab(tabIndex) {
         const tabToRemove = tabs[tabIndex]
-        setTabs(tabs.filter((_, index) => index !== tabIndex))
-        
+        const updatedTabs = tabs.filter((_, index) => index !== tabIndex)
+        setTabs(updatedTabs)
         setTodos(todos.filter(todo => todo.subject !== tabToRemove))
+        saveToStorage(todos, updatedTabs)
     }
 
     function handleTabClick(tab) {
