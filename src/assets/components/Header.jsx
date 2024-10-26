@@ -7,7 +7,7 @@ export function Header(props) {
 
     return (
         <header>
-            <h1>cartIT - task management</h1>
+            <h1>cramIT - task management</h1>
             <p className="text-gray-400 text-sm">You have {totalTask} {ifPlural} TO DO.</p>
         </header>
     )
