@@ -4,6 +4,7 @@ import { Tabs } from "./assets/components/Tabs"
 import { TaskCard } from "./assets/components/TaskCard"
 import { TaskList } from "./assets/components/TaskList"
 import { TaskInput } from "./assets/components/TaskInput"
+import SideBar from "./assets/components/SideBar"
 import { useEffect } from "react"
 
 
@@ -67,12 +68,17 @@ export default function App() {
   }, []);
 
   return (
-    <>
-    <Header todos={todos} />
-    <Tabs todos={todos} setTodos={setTodos} Tab={Tab} setTab={setTab} tabs={tabs} setTabs={setTabs} saveToStorage={saveToStorage}/>
-    {/* <TaskCard todos={todos}/> */}
-    <TaskList todos={todos} Tab={Tab} handleDeleteTask={handleDeleteTask}  handleDoneTask={handleDoneTask}/>
-    <TaskInput handleAddTask={handleAddTask} tabs={tabs} setTabs={setTabs}/>
-    </>
+    <div className="flex gap-12">
+      <div className="sidebar">
+        <SideBar />
+      </div>
+      <div className="main w-full">
+      <Header todos={todos} />
+      <Tabs todos={todos} setTodos={setTodos} Tab={Tab} setTab={setTab} tabs={tabs} setTabs={setTabs} saveToStorage={saveToStorage}/>
+      {/* <TaskCard todos={todos}/> */}
+      <TaskList todos={todos} Tab={Tab} handleDeleteTask={handleDeleteTask}  handleDoneTask={handleDoneTask}/>
+      <TaskInput handleAddTask={handleAddTask} tabs={tabs} setTabs={setTabs}/>
+      </div>
+    </div>
   )
 }
