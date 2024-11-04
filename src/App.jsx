@@ -24,6 +24,8 @@ export default function App() {
 
   const [Tab, setTab] = useState('All')
 
+  const [sideBar, setSideBar] = useState(true)
+
   function handleAddTask(newTask, selectedTab, dueDate) {
     const newTaskList = [...todos, {task: newTask, isComplete: false, subject: selectedTab, dueDate: dueDate}]
     setTodos(newTaskList)
@@ -55,6 +57,11 @@ export default function App() {
     localStorage.setItem('tabs', JSON.stringify(latestTab))
   }
 
+  function hideSideBar() {
+    setSideBar(!sideBar)
+  }
+
+
   useEffect(() => {
     const savedTasks = JSON.parse(localStorage.getItem('tasks'));
     const savedTabs = JSON.parse(localStorage.getItem('tabs'));
@@ -69,11 +76,12 @@ export default function App() {
 
   return (
     <div className="flex gap-12">
-      <div className="sidebar">
-        <SideBar />
-      </div>
+      {
+        sideBar && <SideBar hideSideBar={hideSideBar}/>
+      }
+     
       <div className="main w-full">
-      <Header todos={todos} />
+      <Header todos={todos} sideBar={sideBar} hideSideBar={hideSideBar}/>
       <Tabs todos={todos} setTodos={setTodos} Tab={Tab} setTab={setTab} tabs={tabs} setTabs={setTabs} saveToStorage={saveToStorage}/>
       {/* <TaskCard todos={todos}/> */}
       <TaskList todos={todos} Tab={Tab} handleDeleteTask={handleDeleteTask}  handleDoneTask={handleDoneTask}/>
