@@ -7,9 +7,11 @@ export function Header(props) {
 
     return (
         <header>
-            {!sideBar && <button onClick={hideSideBar}>open</button>}
-            <h1>cramIT - task management</h1>
+            {!sideBar && <button onClick={hideSideBar}>
+            <i className="fa-solid fa-list mb-5 text-2xl"></i></button>}
+            <h1 className="text-xl">Dashboard</h1>
             <p className="text-gray-400 text-sm">You have {totalTask} {ifPlural} TO DO.</p>
+            <p className="text-gray-200 text-sm">[graph TO DO]</p>
         </header>
     )
 }
