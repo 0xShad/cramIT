@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export function Tabs(props) {
-    const { todos, setTodos, Tab, setTab, tabs, setTabs, saveToStorage } = props
+    const { todos, setTodos, Tab, setTab, tabs, setTabs, saveToStorage, handleTabClick} = props
    
 
     function addTab() {
@@ -29,9 +29,6 @@ export function Tabs(props) {
         saveToStorage(todos, updatedTabs)
     }
 
-    function handleTabClick(tab) {
-        setTab(tab)
-    }
 
 
     return (

@@ -52,6 +52,11 @@ export default function App() {
 
   }
 
+  function handleTabClick(tab) {
+    setTab(tab)
+}
+
+
   function saveToStorage(latestTask, latestTab) {
     localStorage.setItem('tasks', JSON.stringify(latestTask))
     localStorage.setItem('tabs', JSON.stringify(latestTab))
@@ -77,12 +82,12 @@ export default function App() {
   return (
     <div className="flex gap-12">
       {
-        sideBar && <SideBar hideSideBar={hideSideBar}/>
+        sideBar && <SideBar hideSideBar={hideSideBar} tabs={tabs} handleTabClick={handleTabClick}/>
       }
      
       <div className="main w-full">
       <Header todos={todos} sideBar={sideBar} hideSideBar={hideSideBar}/>
-      <Tabs todos={todos} setTodos={setTodos} Tab={Tab} setTab={setTab} tabs={tabs} setTabs={setTabs} saveToStorage={saveToStorage}/>
+      <Tabs todos={todos} setTodos={setTodos} Tab={Tab} setTab={setTab} tabs={tabs} setTabs={setTabs} saveToStorage={saveToStorage} handleTabClick={handleTabClick}/>
       {/* <TaskCard todos={todos}/> */}
       <TaskList todos={todos} Tab={Tab} handleDeleteTask={handleDeleteTask}  handleDoneTask={handleDoneTask}/>
       <TaskInput handleAddTask={handleAddTask} tabs={tabs} setTabs={setTabs}/>
