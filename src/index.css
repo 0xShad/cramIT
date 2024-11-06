@@ -8,7 +8,7 @@
   /* max-width: 1200px; */
   color: #fff;
   font-family: "Press Start 2P", serif;
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 
 body {
@@ -50,3 +50,4 @@ input[type="text"], input[type="datetime-local"], select {
   grid-template-columns: 70% 14% 14%;
   gap: 5px;
 }
+

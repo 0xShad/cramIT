@@ -80,7 +80,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex gap-12">
+    <div className="flex gap-3">
       {
         sideBar && <SideBar hideSideBar={hideSideBar} tabs={tabs} handleTabClick={handleTabClick}/>
       }

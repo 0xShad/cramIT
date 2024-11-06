@@ -29,12 +29,12 @@ export function Tabs(props) {
         saveToStorage(todos, updatedTabs)
     }
 
-
+    const filteredTabs = tabs.filter(tab => tab === 'All' || tab === 'Done')
 
     return (
         <nav className="mt-4">
             <div className="flex gap-0.5 flex-wrap">
-            {tabs.map((tabItem, tabIndex) => {
+            {filteredTabs.map((tabItem, tabIndex) => {
 
                 let numberOfTask = tabItem === 'All'
                 ? todos.length
