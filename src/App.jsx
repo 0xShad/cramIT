@@ -56,6 +56,13 @@ export default function App() {
     setTab(tab)
 }
 
+function removeTab(tabName) {
+  const updatedTabs = tabs.filter(tab => tab !== tabName);
+  setTabs(updatedTabs);
+  setTodos(todos.filter(todo => todo.subject !== tabName));
+  saveToStorage(todos, updatedTabs);
+}
+
 
   function saveToStorage(latestTask, latestTab) {
     localStorage.setItem('tasks', JSON.stringify(latestTask))
@@ -82,7 +89,7 @@ export default function App() {
   return (
     <div className="flex gap-3">
       {
-        sideBar && <SideBar hideSideBar={hideSideBar} tabs={tabs} handleTabClick={handleTabClick}/>
+        sideBar && <SideBar hideSideBar={hideSideBar} tabs={tabs} handleTabClick={handleTabClick} removeTab={removeTab}/>
       }
      
       <div className="main w-full">

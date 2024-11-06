@@ -15,8 +15,8 @@ export function Header(props) {
             <h1 className="text-xl">Dashboard</h1>
             <p className="text-gray-400 text-sm">You have {totalTask} {ifPlural} TO DO.</p>
             <h5>Graph (CURRENTLY STATIC [TO FINISH]) </h5>
-            <div className="h-72 flex justify-center">
-                {
+            <div className="h-72 flex justify-center hidden">
+                { 
                     <Bar 
                      data={{
                         labels: ["A", "B", "C"],

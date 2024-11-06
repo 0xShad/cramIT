@@ -61,12 +61,11 @@ export function Tabs(props) {
                 )
             })}
 
-            <div className="flex gap-2 p-2">
+          { /*  <div className="flex gap-2 p-2">
             <button onClick={addTab} className="addTaskButton  bg-white text-[#3929ff] font-bold px-1.5 rounded-sm">
             <i className="fa-solid fa-plus"></i>
             </button>
-            <button onClick={editTab} className="text-[8px] bg-white text-[#3929ff] px-1.5 rounded-sm"> {isEditOn ? 'Done' : 'Edit'}</button>
-            </div>
+            </div> */}
             </div>
         </nav>
     )
